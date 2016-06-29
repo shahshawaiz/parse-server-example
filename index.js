@@ -24,15 +24,24 @@ var api = new ParseServer({
   }
 });
 
-var dashboard = new ParseDashboard({
-  "apps": [{
-    "serverURL": "https://parse-shah.herokuapp.com/parse",
-    "appId": "parse-shah",
-    "masterKey": "parse-shah",
-    "appName": "parse-shah",
-    "iconName": ""
-  }]
-});
+var config = {
+  "allowInsecureHTTP": true,
+  "apps": [
+    {
+      "serverURL": "https://parse-shah.herokuapp.com/parse",
+      "appId": "parse-shah",
+      "masterKey": "parse-shah",
+      "appName": "parse-shah",
+      "iconName": ""
+    }
+  ],"users": [
+    {
+      "user":"parse-shah",
+      "pass":"parse-shah"
+    }
+  ]
+};
+var dashboard = new ParseDashboard(config, config.allowInsecureHTTP);
 
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
 // If you wish you require them, you can set them as options in the initialization above:
